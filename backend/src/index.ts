@@ -20,12 +20,9 @@ app.use("/api/uploads/images", imagesToPdfRoutes);
 app.use("/api/response", geminiRoutes);
 app.use("/api/uploads/text", textToPdfRoutes);
 
-// Start local server if not in Vercel environment
-if (process.env.NODE_ENV !== "production") {
-  app.listen(7000, () => {
-    console.log("Server running on port 7000");
-  });
-}
+app.listen(7000, () => {
+  console.log("Server running on port 7000");
+});
 
 // Export the Express API for Vercel
 export default app;
