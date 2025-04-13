@@ -15,6 +15,10 @@ app.use("/api/uploads/images", imagesToPdfRoutes);
 app.use("/api/response", geminiRoutes);
 app.use("/api/uploads/text", textToPdfRoutes);
 
+app.use("/", () => console.log("Working"));
+
 app.listen(7000, () => {
   console.log("Server running on port 7000");
 });
+
+export default app;
