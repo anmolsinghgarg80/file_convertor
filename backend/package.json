@@ -14,9 +14,11 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "./src/index.ts",
+  "engines": {
+    "node": "18.x"
+  },
   "scripts": {
-    "dev": "nodemon",
-    "build": "tsc"
+    "dev": "nodemon src/index.ts"
   },
   "keywords": [],
   "author": "",
