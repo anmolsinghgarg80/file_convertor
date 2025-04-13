@@ -11,14 +11,21 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Root route
+app.get("/", (req, res) => {
+  res.json({ message: "API is working" });
+});
+
 app.use("/api/uploads/images", imagesToPdfRoutes);
 app.use("/api/response", geminiRoutes);
 app.use("/api/uploads/text", textToPdfRoutes);
 
-app.get("/", () => console.log("Working"));
+// Start local server if not in Vercel environment
+if (process.env.NODE_ENV !== "production") {
+  app.listen(7000, () => {
+    console.log("Server running on port 7000");
+  });
+}
 
-app.listen(7000, () => {
-  console.log("Server running on port 7000");
-});
-
+// Export the Express API for Vercel
 export default app;
