@@ -1,8 +1,9 @@
 import { useMutation } from "@tanstack/react-query";
+const API = import.meta.env.VITE_BACKEND_URL;
 
 export const useUploadForm = () => {
   const uploadFormRequest = async (form: FormData): Promise<Blob> => {
-    const response = await fetch("http://localhost:7000/api/uploads/images", {
+    const response = await fetch(`${API}/api/uploads/images`, {
       method: "POST",
       body: form,
     });
